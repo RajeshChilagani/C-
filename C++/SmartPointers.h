@@ -1,4 +1,8 @@
 #pragma once
+#include <sstream>
+#include <iostream>
+#include <string>
+#define TRACE_ERROR(s){std::stringstream os;os<<"\nError:";os<<s;os<<std::endl;OutputDebugStringA( os.str().c_str() );}
 template <typename T>
 class WeakPtr;
 struct RefCount

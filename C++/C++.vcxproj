@@ -150,12 +150,19 @@
     <ClCompile Include="AnotherHelper.cpp" />
     <ClCompile Include="C++.cpp" />
     <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPPLearnings.h" />
     <ClInclude Include="EC.h" />
     <ClInclude Include="GlobalSystem.h" />
+    <ClInclude Include="Includer.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Matrix_inl.h" />
     <ClInclude Include="SmartPointers.h" />
+    <ClInclude Include="Vector4.h" />
+    <ClInclude Include="Vector4_inl.h" />
     <ClInclude Include="WeakPtr.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
