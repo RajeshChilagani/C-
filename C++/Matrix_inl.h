@@ -7,12 +7,12 @@ namespace Engine
 		{
 			SetDiagonal();
 		}
-		inline Matrix4::Matrix4(const Vector4& InX, const Vector4& InY, const Vector4& InZ, const Vector4& InW)
+		inline Matrix4::Matrix4(const Vector4& r1, const Vector4& r2, const Vector4& r3, const Vector4& r4)
 		{
-			M[0][0] = InX.x(); M[0][1] = InX.y();  M[0][2] = InX.z();  M[0][3] = InX.w();
-			M[1][0] = InY.x(); M[1][1] = InY.y();  M[1][2] = InY.z();  M[1][3] = InY.w();
-			M[2][0] = InZ.x(); M[2][1] = InZ.y();  M[2][2] = InZ.z();  M[2][3] = InZ.w();
-			M[3][0] = InW.x(); M[3][1] = InW.y();  M[3][2] = InW.z();  M[3][3] = InW.w();
+			M[0][0] = r1.x(); M[0][1] = r1.y();  M[0][2] = r1.z();  M[0][3] = r1.w();
+			M[1][0] = r2.x(); M[1][1] = r2.y();  M[1][2] = r2.z();  M[1][3] = r2.w();
+			M[2][0] = r3.x(); M[2][1] = r3.y();  M[2][2] = r3.z();  M[2][3] = r3.w();
+			M[3][0] = r4.x(); M[3][1] = r4.y();  M[3][2] = r4.z();  M[3][3] = r4.w();
 		}
 		inline Matrix4& Matrix4::operator+=(const Matrix4 & i_Rhs)
 		{
@@ -28,6 +28,13 @@ namespace Engine
 		{
 			*this = *this*i_Rhs;
 			return *this;
+		}
+		//static
+		inline Matrix4 Matrix4::CreateIdentity()
+		{
+			Matrix4 Temp;
+			Temp.SetDiagonal();
+			return Temp;
 		}
 	}
 }

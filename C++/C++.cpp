@@ -415,15 +415,27 @@ void MatrixTest(int i_Mat[2][2])
 	i_Mat[1][0] = 25;
 	i_Mat[1][1] = 25;
 }
+class TestFunc
+{
+public:
+	void PrintAnyThing(TestFunc& Test);
+	friend std::ostream& operator<<(ostream& Test, const TestFunc& T)
+	{
+		std::cout << T.m_A;
+		return Test;
+	}
+private:
+	int m_A=1;
+};
+void TestFunc::PrintAnyThing(TestFunc& Test)
+{
+	std::cout << Test.m_A;
+	TestFunc T;
+	T.m_A = 1;;
+}
 int main()
 {
-	int Mat4[2][2];
-	MatrixTest(Mat4);
-	Engine::Math::Matrix4 M1(MATH_API::Vector4(1,2,3,4), MATH_API::Vector4(1, 2, 3, 4), MATH_API::Vector4(1, 2, 3, 4), MATH_API::Vector4(1, 2, 3, 4));
-	Engine::Math::Matrix4 M2;
-	M2.SetDiagonal(2);
-	M2 *= M1;
-	M2 = Engine::Math::Matrix4::Transpose(M2);
+	Engine::Math::Matrix4 M;
 	const MATH_API::Vector4 P1(4.0f, 5.0f,6.0f,7.0f);
 	MATH_API::Vector4 P2(1.0f, 2.0f,3.0f,4.0f);
 	cout << "p1 is " << P1 << "P2 is " << P2 << std::endl;
