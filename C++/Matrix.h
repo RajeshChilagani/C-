@@ -6,8 +6,8 @@ namespace Engine
 	{
 		inline float DegreeToRadians(float i_Degree)
 		{
-			float pi = 3.14159265359f;
-			return (pi*i_Degree) / 180;
+			float pi = 3.14159265f;
+			return i_Degree*pi/ 180.0;
 		}
 		class Matrix4
 		{
@@ -31,9 +31,9 @@ namespace Engine
 			friend Vector4 operator*(const Vector4& i_Lhs, const Matrix4& i_Rhs);
 			//static
 			static Matrix4 CreateIdentity();
-			static Matrix4 CreateXRotation(float i_RotationInRadians);
-			static Matrix4 CreateYRotation(float i_RotationInRadians);
-			static Matrix4 CreateZRotation(float i_RotationInRadians);
+			static Matrix4 CreateXRotation(float i_RotationDegrees);
+			static Matrix4 CreateYRotation(float i_RotationDegrees);
+			static Matrix4 CreateZRotation(float i_RotationDegrees);
 			static Matrix4 CreateTranslation(float i_TransX, float i_TransY, float i_TransZ);
 			static Matrix4 CreateTranslation(Vector4& i_Trans);
 			static Matrix4 CreateScale(float i_ScaleX, float i_ScaleY, float i_ScaleZ);

@@ -435,7 +435,21 @@ void TestFunc::PrintAnyThing(TestFunc& Test)
 }
 int main()
 {
-	Engine::Math::Matrix4 M;
+	//Matrix Lib UnitTest
+	Engine::Math::Matrix4 mRotY = Engine::Math::Matrix4::CreateYRotation(90.0);
+	Engine::Math::Matrix4 mRotX = Engine::Math::Matrix4::CreateXRotation(180.0);
+	Engine::Math::Matrix4 mTran = Engine::Math::Matrix4::CreateTranslation(1.5f,1.0f,1.5f);
+	Engine::Math::Matrix4 mPointInWorldTransform = mTran*(mRotX*mRotY);
+	Engine::Math::Matrix4 mPointInWorlsTransformInverse = mPointInWorldTransform.GetInverse();
+	Engine::Math::Vector4 PointToBeMoved(0, 1, 0, 1);
+	std::cout << "Orignial Point - " << PointToBeMoved << std::endl;
+	Engine::Math::Vector4 transformedPoint = mPointInWorldTransform * PointToBeMoved;
+	std::cout << "Transfomred  Point - " << transformedPoint << std::endl;
+	Engine::Math::Vector4 OriginalPoint = mPointInWorlsTransformInverse * transformedPoint;
+	std::cout << "Original after transforming back - " << OriginalPoint<< std::endl;
+
+	//
+//
 	const MATH_API::Vector4 P1(4.0f, 5.0f,6.0f,7.0f);
 	MATH_API::Vector4 P2(1.0f, 2.0f,3.0f,4.0f);
 	cout << "p1 is " << P1 << "P2 is " << P2 << std::endl;
